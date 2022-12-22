@@ -27,20 +27,17 @@ export default styles=StyleSheet.create({
         paddingRight: 30
     },
     image: {
-        marginTop: 0,
-        width: 25,
-        height: 25,
-        marginRight:10
+        marginTop: 5,
+        width: 15,
+        height: 15
     },
     body__email: {
         flexDirection: "row",
         borderBottomWidth: 1,
-        height:25,
-        marginBottom:20
+        marginBottom:35
     },
     body__password: {
-        marginBottom:15,
-        height:25,
+        marginBottom:25,
         flexDirection: "row",
         borderBottomWidth: 1,
     },

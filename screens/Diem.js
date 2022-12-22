@@ -10,7 +10,7 @@ export default function Diem({route}) {
   }, []);
 
   const fetchDatas = () => {
-    fetch('http://192.168.1.89/ChuyenDe4/api/Diem.php', {
+    fetch('http://192.168.1.8:8081/ChuyenDe4/api/Diem.php', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

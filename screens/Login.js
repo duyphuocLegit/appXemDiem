@@ -20,7 +20,7 @@ export default function Login({ navigation }) {
       }
       else
       {
-        fetch('http://192.168.1.89/ChuyenDe4/api/Login.php', {
+        fetch('http://192.168.1.8:8081/ChuyenDe4/api/Login.php', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -35,7 +35,7 @@ export default function Login({ navigation }) {
         .then(jsonResponse => {
           if(jsonResponse[0].Message == 'true')
           {
-            navigation.navigate('Trangchu') 
+            navigation.navigate('StackMonhoc') 
           }
           else
           {
@@ -53,7 +53,7 @@ export default function Login({ navigation }) {
         </View>
         <View style={styles.body}>
             <View>
-                <Text style={{marginBottom:8}}>Tên tài khoản</Text>
+                <Text style={{marginBottom:10}}>Tên tài khoản</Text>
                 <View style={styles.body__email}>
                     <Image style={styles.image} source={require('../assets/email.png')} />
                     <TextInput
@@ -61,7 +61,7 @@ export default function Login({ navigation }) {
                     >
                     </TextInput>
                 </View>
-                <Text style={{marginBottom:8}}>Mật khẩu</Text>
+                <Text style={{marginBottom:10}}>Mật khẩu</Text>
                 <View style={styles.body__password}>
                     <Image style={styles.image} source={require('../assets/lock.png')} />
                     <TextInput

@@ -9,7 +9,7 @@ export default function Monhoc({ navigation }) {
   }, []);
 
   const fetchDatas = () => {
-    fetch('http://192.168.1.89/ChuyenDe4/api/Monhoc.php')
+    fetch('http://192.168.1.8:8081/ChuyenDe4/api/Monhoc.php')
       .then(response => response.json())
       .then(jsonResponse => setDatas(jsonResponse))
       .catch(error => console.log(error))

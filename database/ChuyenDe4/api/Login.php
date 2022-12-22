@@ -14,7 +14,7 @@
 	$matkhau = $obj['matkhau'];
 	
 	$query = 'SELECT A.MaSV, A.MaLop, A.TenTK, B.MatKhau 
-			FROM sinhvien A, taikhoan B
+			FROM sinhvien as A, taikhoan as B
 			WHERE A.TenTk = B.TenTK
 			AND A.TenTK="'.$tentk.'"';
 	$query_output =  mysqli_query($ketnoi,$query);
