@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native'
 export default styles=StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: "#009387",
-        paddingTop: 40
+        backgroundColor: "#3399FF",
+        paddingTop: 40,
     },
     header: {
         flex: 1,
@@ -24,30 +24,38 @@ export default styles=StyleSheet.create({
         borderTopRightRadius: 20,
         paddingTop: 50,
         paddingLeft: 30,
-        paddingRight: 30
+        paddingRight: 30,
     },
     image: {
         marginTop: 5,
         width: 15,
         height: 15
     },
+    formInput: {
+        height: 50,marginLeft:20
+        
+    },
     body__email: {
         flexDirection: "row",
-        borderBottomWidth: 1,
-        marginBottom:35
+        marginBottom:35,
+        backgroundColor:'#E0E0E0',
+        height: 50,width:'100%',
+        borderRadius:25,
     },
     body__password: {
-        marginBottom:25,
         flexDirection: "row",
-        borderBottomWidth: 1,
+        marginBottom:35,
+        backgroundColor:'#E0E0E0',
+        height: 50,width:'100%',
+        borderRadius:25
     },
     button: {
         width: "100%",
         height: 50,
         alignItems: "center",
-        fontSize: 20,
+        fontSize: 25,
         justifyContent: "center",
-        backgroundColor: "#009387",
+        backgroundColor: "#3399FF",
         marginTop: 20,
         borderRadius: 20,
     },

@@ -49,22 +49,24 @@ export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
         <View style={styles.header}>
+        
             <Text style={styles.header__text}>Đăng nhập</Text>
         </View>
         <View style={styles.body}>
             <View>
-                <Text style={{marginBottom:10}}>Tên tài khoản</Text>
                 <View style={styles.body__email}>
-                    <Image style={styles.image} source={require('../assets/email.png')} />
                     <TextInput
+                    style={styles.formInput}
+                    placeholder='Username'
                         onChangeText={(text) => { setTentk(text) }}
                     >
                     </TextInput>
                 </View>
-                <Text style={{marginBottom:10}}>Mật khẩu</Text>
                 <View style={styles.body__password}>
-                    <Image style={styles.image} source={require('../assets/lock.png')} />
                     <TextInput
+                    style={styles.formInput}
+                    placeholder='Password'
+
                         secureTextEntry={true}
                         onChangeText={(text) => { setMatkhau(text) }}
                     >    
@@ -76,6 +78,7 @@ export default function Login({ navigation }) {
                     <Text style={{fontWeight: '500', color: 'white'}}>Đăng nhập</Text>
                 </TouchableOpacity>
             </View>
+            <Image style={{width:170,height:170,marginLeft:'25%',marginTop:120,opacity:0.7}} source={require('../assets/images/logo.png')}/>
         </View>
     </View>
   )
