@@ -8,6 +8,6 @@
 	$ketnoi = mysqli_connect($sever, $user, $pass, $dbname);
 	if(!$ketnoi)
 	{
-		die('Không kết nối được!'.mysqli_error());
+		die('Không kết nối được!');
 	}
 ?>

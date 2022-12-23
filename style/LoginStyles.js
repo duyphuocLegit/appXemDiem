@@ -62,6 +62,6 @@ export default styles=StyleSheet.create({
     button__SignUp: {
         backgroundColor: "white",
         borderWidth: 1,
-        borderColor: "#009387"
+        borderColor: "#E0E0E0"
     }
 })

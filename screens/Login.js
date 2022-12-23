@@ -20,7 +20,7 @@ export default function Login({ navigation }) {
       }
       else
       {
-        fetch('http://192.168.1.8:8081/ChuyenDe4/api/Login.php', {
+        fetch('http://192.168.1.89/ChuyenDe4/api/Login.php', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -35,7 +35,7 @@ export default function Login({ navigation }) {
         .then(jsonResponse => {
           if(jsonResponse[0].Message == 'true')
           {
-            navigation.navigate('StackMonhoc') 
+            navigation.navigate('AfterLogin')
           }
           else
           {

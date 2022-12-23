@@ -1,6 +1,6 @@
 /** @format */
 
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image,BackHandler } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -21,23 +21,22 @@ export default function App() {
       </Stack.Navigator>
     );
   }
-
   function UserStack() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name='User' component={User} />
+        <Stack.Screen name='Login' component={Login} />
       </Stack.Navigator>
     );
   }
 
-  function AfterLoginTab() {
+  function AfterLogin() {
     return (
       <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen
-          name='Monhoc'
+          name='MonhocTab'
           component={MonhocStack}
           options={{
-            title: "Monhoc",
             tabBarIcon: ({ focused }) => (
               <Image
                 source={require("./assets/icon/Book.png")}
@@ -48,7 +47,7 @@ export default function App() {
                 }}
               />
             ),
-            tabBarLabel: ({ focused, color, size }) => (
+            tabBarLabel: ({ focused, color}) => (
               <Text style={{ color: focused ? "#2490F8" : color }}>
                 Môn Học
               </Text>
@@ -56,7 +55,7 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name='User'
+          name='UserTab'
           component={UserStack}
           options={{
             tabBarIcon: ({ focused }) => (
@@ -83,7 +82,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='AfterLogin' component={AfterLoginTab} options={{gestureEnabled:false}}/>
+        <Stack.Screen name='AfterLogin' component={AfterLogin} options={{gestureEnabled:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
