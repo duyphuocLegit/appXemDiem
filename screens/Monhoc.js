@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import styles from '../style/MonhocStyles'
 
 export default function Monhoc({ navigation }) {
   const [datas, setDatas] = useState([]);
@@ -14,20 +15,25 @@ export default function Monhoc({ navigation }) {
       .then(jsonResponse => setDatas(jsonResponse))
       .catch(error => console.log(error))
   };
-
   const renderDatas = (data) => (
-      <View style={{ marginTop: 40, marginLeft: 10 }}>
-        <TouchableOpacity onPress={() => { navigation.navigate("StackDiem", data.item) }}>
-          <Text>{data.item.MaMon}</Text>
-          <Text>{data.item.TenMon}</Text>
-        </TouchableOpacity>
+    <View>
+    <TouchableOpacity onPress={() => { navigation.navigate("Diem", data.item) }}>
+      <View style={styles.row}>
+          <Text style={styles.mamon}>{data.item.MaMon}</Text>
+          <Text style={styles.tenmon}>{data.item.TenMon}</Text>
       </View>
+        </TouchableOpacity></View>
     )
 
   return (
-    <View>
+    <View style={styles.container}>
+    <View style={styles.row}>
+      <Text style={styles.mamon}>Mã môn</Text>
+      <Text style={styles.tenmon}>Tên môn</Text>
+    </View>
       <FlatList
         data={datas}
+        
         renderItem={renderDatas}
       />
     </View>

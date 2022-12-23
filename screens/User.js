@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { AsyncStorageStatic } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 export default function User({ navigation }) {
   const [datas, setDatas] = useState([]);
-  const AsyncStorage = AsyncStorageStatic.create()
 
   useEffect(() => {
     fetchDatas()
@@ -25,20 +24,20 @@ export default function User({ navigation }) {
         <Text>Ngày sinh: {data.item.NgaySinhFM}</Text>
         <Text>Giới tính: {data.item.GioiTinh}</Text>
         <TouchableOpacity onPress={()=>
-              alert(
-                
+              Alert.alert(
+                'Log out',
                 'Do you want to logout?',
                 [
                   {text: 'Cancel', onPress: () => {return null}},
                   {text: 'Confirm', onPress: () => {
                     AsyncStorage.clear();
-                    props.navigation.navigate('Login')
+                    navigation.navigate('Login')
                   }},
                 ],
                 { cancelable: false }
               )  
             }>
-              <Text style={{margin: 16,fontWeight: 'bold'}}>Logout</Text>
+              <Text style={{margin: 16,fontWeight: 'bold'}}>Log out</Text>
             </TouchableOpacity>
       </View>
     )

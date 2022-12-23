@@ -1,45 +1,60 @@
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
-import React, { useState, useEffect } from 'react'
+/** @format */
 
-export default function Diem({route}) {
-  const [datas, setDatas] = useState([])
-  const [tenmon, setTenmon] = useState(route.params.TenMon)
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState, useEffect } from "react";
+import styles from "../style/DiemStyles";
+
+export default function Diem({ route }) {
+  const [datas, setDatas] = useState([]);
+  const [tenmon, setTenmon] = useState(route.params.TenMon);
 
   useEffect(() => {
-    fetchDatas()
+    fetchDatas();
   }, []);
 
   const fetchDatas = () => {
-    fetch('http://150.150.2.3/ChuyenDe4/api/Diem.php', {
-      method: 'POST',
+    fetch("http://192.168.1.89/ChuyenDe4/api/Diem.php", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        tenmon: tenmon
+        tenmon: tenmon,
       }),
     })
-    .then(response => response.json())
-    .then(jsonResponse => setDatas(jsonResponse))
-    .catch(error => console.log(error))
+      .then((response) => response.json())
+      .then((jsonResponse) => setDatas(jsonResponse))
+      .catch((error) => console.log(error));
   };
 
-  const renderDatas = (data) => (
-      <View style={{ marginTop: 40, marginLeft: 10 }}>
-          <Text>{data.item.MaLop}</Text>
-          <Text>{data.item.TenSV}</Text>
-          <Text>{data.item.TenMon}</Text>
-          <Text>{data.item.diem}</Text>
+  const renderDatas = (data,index) => (
+    <View style={{ marginTop: 40, marginLeft: 10 }}>
+      
+      <View style={index%2==0? styles.row:styles.row2}>
+      <Text style={styles.masv}>{data.item.MaSV}</Text>
+      <Text style={styles.tensv}>{data.item.TenSV}</Text>
+      <Text style={styles.diem}>{data.item.diem}</Text>
       </View>
-    )
+      
+    </View>
+  );
 
   return (
-    <View>
-      <FlatList
-        data={datas}
-        renderItem={renderDatas}
-      />
+    <View style={styles.container}>
+    <View style={styles.row}>
+      <Text style={styles.masv}>Mã sv</Text>
+      <Text style={styles.tensv}>Tên sv</Text>
+      <Text style={styles.tenmon}>Môn học</Text>
     </View>
-  )
+      <FlatList data={datas} renderItem={renderDatas} />
+    </View>
+  );
 }
