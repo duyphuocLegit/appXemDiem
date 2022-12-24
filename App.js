@@ -1,6 +1,6 @@
 /** @format */
 
-import { StyleSheet, Text, View, Image,BackHandler } from "react-native";
+import { StyleSheet, Text, View, Image, } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -12,7 +12,6 @@ import User from "./screens/User";
 export default function App() {
   const Tab = createBottomTabNavigator();
   const Stack = createNativeStackNavigator();
-
   function MonhocStack() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -78,6 +77,14 @@ export default function App() {
       </Tab.Navigator>
     );
   }
+  // function AfterLogin(){
+  //   return(
+  //     <Drawer.Navigator>
+  //       <Drawer.Screen name="Monhoc" component={MonhocStack}/>
+  //       <Drawer.Screen name="User" component={UserStack}/>
+  //     </Drawer.Navigator>
+  //   )
+  // }
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>

@@ -48,6 +48,7 @@ export default function Login({ navigation }) {
     
   return (
     <View style={styles.container}>
+    
         <View style={styles.header}>
         
             <Text style={styles.header__text}>Đăng nhập</Text>

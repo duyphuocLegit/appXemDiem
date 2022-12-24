@@ -4,7 +4,6 @@ export default styles=StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: "#3399FF",
-        paddingTop: 40,
     },
     header: {
         flex: 1,

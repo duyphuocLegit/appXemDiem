@@ -27,6 +27,7 @@ export default function Monhoc({ navigation }) {
 
   return (
     <View style={styles.container}>
+    <View style={styles.table}>
     <View style={styles.row}>
       <Text style={styles.mamon}>Mã môn</Text>
       <Text style={styles.tenmon}>Tên môn</Text>
@@ -36,6 +37,6 @@ export default function Monhoc({ navigation }) {
         
         renderItem={renderDatas}
       />
-    </View>
+    </View></View>
   )
 }

@@ -35,26 +35,26 @@ export default function Diem({ route }) {
       .catch((error) => console.log(error));
   };
 
-  const renderDatas = (data,index) => (
-    <View style={{ marginTop: 40, marginLeft: 10 }}>
-      
-      <View style={index%2==0? styles.row:styles.row2}>
-      <Text style={styles.masv}>{data.item.MaSV}</Text>
-      <Text style={styles.tensv}>{data.item.TenSV}</Text>
-      <Text style={styles.diem}>{data.item.diem}</Text>
+  const renderDatas = (data, index) => (
+    <View style={styles.row}>
+      <View style={index % 2 == 0 ? styles.row : styles.row2}>
+        <Text style={styles.masv}>{data.item.MaSV}</Text>
+        <Text style={styles.tensv}>{data.item.TenSV}</Text>
+        <Text style={styles.diem}>{data.item.diem}</Text>
       </View>
-      
     </View>
   );
 
   return (
     <View style={styles.container}>
-    <View style={styles.row}>
-      <Text style={styles.masv}>Mã sv</Text>
-      <Text style={styles.tensv}>Tên sv</Text>
-      <Text style={styles.tenmon}>Môn học</Text>
-    </View>
-      <FlatList data={datas} renderItem={renderDatas} />
+      <View style={styles.table}>
+        <View style={styles.row}>
+          <Text style={styles.masv}>Mã sv</Text>
+          <Text style={styles.tensv}>Tên sv</Text>
+          <Text style={styles.diem}>Điểm</Text>
+        </View>
+        <FlatList data={datas} renderItem={renderDatas} />
+      </View>
     </View>
   );
 }

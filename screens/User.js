@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, Button } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
+import { StackActions } from '@react-navigation/native';
 export default function User({ navigation }) {
   const [datas, setDatas] = useState([]);
 
@@ -30,8 +30,7 @@ export default function User({ navigation }) {
                 [
                   {text: 'Cancel', onPress: () => {return null}},
                   {text: 'Confirm', onPress: () => {
-                    AsyncStorage.clear();
-                    navigation.navigate('Login')
+                    navigation.dispatch(StackActions.popToTop())
                   }},
                 ],
                 { cancelable: false }
