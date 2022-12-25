@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, Button } from 'react-native'
+import { View, Text,  Image, FlatList, TouchableOpacity,} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Alert } from 'react-native';
 import { StackActions } from '@react-navigation/native';
+import styles from '../style/UserStyles';
 export default function User({ navigation }) {
   const [datas, setDatas] = useState([]);
-
   useEffect(() => {
     fetchDatas()
   }, []);
@@ -17,13 +17,36 @@ export default function User({ navigation }) {
   };
 
   const renderDatas = (data) => (
-      <View style={{ marginTop: 40, marginLeft: 10 }}>
-        <Text>User: {data.item.TenTK}</Text>
-        <Text>Họ tên: {data.item.TenSV}</Text>
-        <Text>Lớp: {data.item.MaLop}</Text>
-        <Text>Ngày sinh: {data.item.NgaySinhFM}</Text>
-        <Text>Giới tính: {data.item.GioiTinh}</Text>
-        <TouchableOpacity onPress={()=>
+    
+    <View style={styles.container}>
+      <View style={styles.profile}>
+      <View style={{alignItems:'center'}}>
+      <Image style={styles.profile__img} source={require('../assets/images/mark.jpeg')}/>
+      <Text style={{fontSize:17,fontWeight:'700',marginBottom:30}}>Thông tin cá nhân</Text></View>
+<View style={{flexDirection:'row',left:30}}>
+      <View style={styles.profile__title}>
+          <Text style={styles.profile__title__text}>Tên</Text>
+          <Text style={styles.profile__title__text}>Tài khoản</Text>
+          <Text style={styles.profile__title__text}>Lớp</Text>
+          <Text style={styles.profile__title__text}>Ngày sinh</Text>
+          <Text style={styles.profile__title__text}>Email</Text>
+          <Text style={styles.profile__title__text}>Sđt</Text>
+          <Text style={styles.profile__title__text}>Giới tính</Text>
+      </View>
+      <View style={styles.profile__detail}>
+        <Text style={styles.profile__detail__text}>{data.item.TenSV}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.TenTK}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.MaLop}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.NgaySinhFM}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.Email}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.SDT}</Text>
+        <Text style={styles.profile__detail__text}>{data.item.GioiTinh}</Text>
+        </View>
+</View>
+        </View>
+        <TouchableOpacity 
+        style ={styles.logout}
+         onPress={()=>
               Alert.alert(
                 'Log out',
                 'Do you want to logout?',
@@ -36,7 +59,10 @@ export default function User({ navigation }) {
                 { cancelable: false }
               )  
             }>
-              <Text style={{margin: 16,fontWeight: 'bold'}}>Log out</Text>
+        <View style={styles.logout__button}>
+              <Text style={styles.logout__text}>Đăng xuất</Text>
+            <Image style={styles.logout__img} source={require('../assets/images/logout.png')}/>
+            </View>
             </TouchableOpacity>
       </View>
     )

@@ -1,13 +1,52 @@
 import { StyleSheet } from "react-native";
 
 export default styles=StyleSheet.create({
-    container:{flex:1,backgroundColor:'#7ABFE6',alignItems: 'center'},
-    table:{marginTop:70,marginLeft:10},
-    row:{flexDirection:'row',height:60},
-    mamon:{
-        backgroundColor:'#ffcc99',width:'30%',fontSize:18,borderWidth:1
+    container: {
+        flex:1,
+        backgroundColor:'#EEEEEE',
+        alignItems: 'center',
+        paddingTop:50
     },
-    tenmon:{
-        backgroundColor:'#ccff99',width:'65%',fontSize:18,borderWidth:1
+    table: {
+        width: '90%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    row: {
+        flexDirection: 'row',
+        backgroundColor: 'white'
+    },
+    row_item_mamon: {
+        padding: 5,
+        width: '35%',
+        textAlign: 'center',
+        borderWidth: 1,
+        borderRightWidth: 0
+    },
+    row_item_tenmon: {
+        padding: 5,
+        borderWidth: 1,
+        width: '65%'
+    },
+    title: {
+        flexDirection: 'row',
+        backgroundColor: "#3399FF",
+    },
+    tile_item_mamon: {
+        padding: 5,
+        borderWidth: 1,
+        width: '35%',
+        alignItems: 'center',
+        borderRightWidth: 0
+    },
+    tile_item_tenmon: {
+        padding: 5,
+        borderWidth: 1,
+        width: '65%',
+        alignItems: 'center'
+    },
+    title_text: {
+        fontWeight: '500',
+        color: 'white'
     }
 })

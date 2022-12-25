@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 20, 2022 lúc 06:40 PM
--- Phiên bản máy phục vụ: 10.1.38-MariaDB
--- Phiên bản PHP: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Dec 25, 2022 at 10:46 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,35 +18,47 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `chuyende4`
+-- Database: `chuyende4`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `diem`
+-- Table structure for table `diem`
 --
 
 CREATE TABLE `diem` (
+  `STT` int(2) NOT NULL,
   `MaSV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `MaMon` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `diem` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `diem`
+-- Dumping data for table `diem`
 --
 
-INSERT INTO `diem` (`MaSV`, `MaMon`, `diem`) VALUES
-('1', 'MH01', 6),
-('1', 'MH02', 9),
-('1', 'MH03', 9),
-('2', 'MH01', 7);
+INSERT INTO `diem` (`STT`, `MaSV`, `MaMon`, `diem`) VALUES
+(1, '1', 'MH01', 6),
+(2, '1', 'MH02', 9),
+(3, '1', 'MH03', 9),
+(4, '2', 'MH01', 7),
+(5, '2', 'MH02', 6),
+(6, '2', 'MH03', 7),
+(7, '3', 'MH01', 8),
+(8, '3', 'MH02', 8),
+(9, '3', 'MH03', 7),
+(10, '4', 'MH04', 10),
+(11, '4', 'MH05', 7),
+(12, '4', 'MH06', 9),
+(13, '5', 'MH04', 6),
+(14, '5', 'MH05', 8),
+(15, '5', 'MH06', 9);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `lop`
+-- Table structure for table `lop`
 --
 
 CREATE TABLE `lop` (
@@ -56,7 +67,7 @@ CREATE TABLE `lop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `lop`
+-- Dumping data for table `lop`
 --
 
 INSERT INTO `lop` (`MaLop`, `TenLop`) VALUES
@@ -66,7 +77,7 @@ INSERT INTO `lop` (`MaLop`, `TenLop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `monhoc`
+-- Table structure for table `monhoc`
 --
 
 CREATE TABLE `monhoc` (
@@ -76,7 +87,7 @@ CREATE TABLE `monhoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `monhoc`
+-- Dumping data for table `monhoc`
 --
 
 INSERT INTO `monhoc` (`MaMon`, `TenMon`, `MaLop`) VALUES
@@ -90,35 +101,36 @@ INSERT INTO `monhoc` (`MaMon`, `TenMon`, `MaLop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sinhvien`
+-- Table structure for table `sinhvien`
 --
 
 CREATE TABLE `sinhvien` (
   `MaSV` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `TenSV` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `TenSV` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `NgaySinh` date NOT NULL,
-  `GioiTinh` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `DiaChi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `GioiTinh` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SDT` int(11) DEFAULT NULL,
   `MaLop` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `TenTK` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `TenTK` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `hinh` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sinhvien`
+-- Dumping data for table `sinhvien`
 --
 
-INSERT INTO `sinhvien` (`MaSV`, `TenSV`, `NgaySinh`, `GioiTinh`, `DiaChi`, `SDT`, `MaLop`, `TenTK`) VALUES
-('1', 'Nguyễn Văn A', '2002-05-16', 'Nam', NULL, NULL, 'CT20CD31', 'CT20CD311'),
-('2', 'Tran Hoang ', '2002-03-12', 'Nam', NULL, NULL, 'CT20CD31', 'CT20CD312'),
-('3', 'Lý Ngọc', '2022-12-01', 'Nữ', NULL, NULL, 'CT20CD31', 'CT20CD313'),
-('4', 'Phạm Văn B', '2022-12-04', 'Nam', NULL, NULL, 'QT20CD31', NULL),
-('5', 'Văn Nam', '2022-12-28', 'Nam', NULL, NULL, 'QT20CD31', NULL);
+INSERT INTO `sinhvien` (`MaSV`, `TenSV`, `NgaySinh`, `GioiTinh`, `Email`, `SDT`, `MaLop`, `TenTK`, `hinh`) VALUES
+('1', 'Nguyễn Văn A', '2002-05-16', 'Nam', 'ngvana@gmail.com', 1162786378, 'CT20CD31', 'CT20CD311', 'billgates.jpeg'),
+('2', 'Tran Hoang ', '2002-03-12', 'Nam', 'trhoang@gmail.com', 62352183, 'CT20CD31', 'CT20CD312', 'elon_musk.jpeg'),
+('3', 'Lý Ngọc', '2022-12-01', 'Nữ', 'lyngoc@gmail.com', 37463272, 'CT20CD31', 'CT20CD313', 'joe_belfiore.jpeg'),
+('4', 'Phạm Văn B', '2022-12-04', 'Nam', 'phvanb@gmail.com', 746273829, 'QT20CD31', 'QT20CD311', 'joe_biden.jpeg'),
+('5', 'Văn Nam', '2022-12-28', 'Nam', 'vannam@gmail.com', 376432673, 'QT20CD31', 'QT20CD312', 'mark.jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `taikhoan`
+-- Table structure for table `taikhoan`
 --
 
 CREATE TABLE `taikhoan` (
@@ -127,40 +139,43 @@ CREATE TABLE `taikhoan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `taikhoan`
+-- Dumping data for table `taikhoan`
 --
 
 INSERT INTO `taikhoan` (`TenTK`, `MatKhau`) VALUES
 ('CT20CD311', 'abcd'),
 ('CT20CD312', 'abcd'),
-('CT20CD313', 'abcd');
+('CT20CD313', 'abcd'),
+('QT20CD311', 'abcd'),
+('QT20CD312', 'abcd');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `diem`
+-- Indexes for table `diem`
 --
 ALTER TABLE `diem`
+  ADD PRIMARY KEY (`STT`),
   ADD KEY `MaSV` (`MaSV`,`MaMon`),
   ADD KEY `MaMon` (`MaMon`);
 
 --
--- Chỉ mục cho bảng `lop`
+-- Indexes for table `lop`
 --
 ALTER TABLE `lop`
   ADD PRIMARY KEY (`MaLop`);
 
 --
--- Chỉ mục cho bảng `monhoc`
+-- Indexes for table `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD PRIMARY KEY (`MaMon`),
   ADD KEY `MaLop` (`MaLop`);
 
 --
--- Chỉ mục cho bảng `sinhvien`
+-- Indexes for table `sinhvien`
 --
 ALTER TABLE `sinhvien`
   ADD PRIMARY KEY (`MaSV`),
@@ -168,30 +183,40 @@ ALTER TABLE `sinhvien`
   ADD KEY `TenTK` (`TenTK`);
 
 --
--- Chỉ mục cho bảng `taikhoan`
+-- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`TenTK`);
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `diem`
+-- AUTO_INCREMENT for table `diem`
+--
+ALTER TABLE `diem`
+  MODIFY `STT` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `diem`
 --
 ALTER TABLE `diem`
   ADD CONSTRAINT `diem_ibfk_1` FOREIGN KEY (`MaMon`) REFERENCES `monhoc` (`MaMon`) ON UPDATE CASCADE,
   ADD CONSTRAINT `diem_ibfk_2` FOREIGN KEY (`MaSV`) REFERENCES `sinhvien` (`MaSV`) ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `monhoc`
+-- Constraints for table `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`MaLop`) REFERENCES `lop` (`MaLop`) ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `sinhvien`
+-- Constraints for table `sinhvien`
 --
 ALTER TABLE `sinhvien`
   ADD CONSTRAINT `sinhvien_ibfk_2` FOREIGN KEY (`MaLop`) REFERENCES `lop` (`MaLop`) ON UPDATE CASCADE,

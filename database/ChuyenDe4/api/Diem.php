@@ -15,7 +15,7 @@
 	if(isset($_SESSION['malop']))
 	{
 		$malop = $_SESSION['malop'];
-		$data = 'SELECT B.MaLop, B.TenSV, C.TenMon, A.diem,B.MaSV
+		$data = 'SELECT B.MaLop, B.TenTK, B.TenSV, C.TenMon, A.diem
 				FROM diem as A, sinhvien as B, monhoc as C
 				WHERE A.MaSV = B.MaSV
 				AND A.MaMon = C.MaMon

@@ -14,17 +14,16 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   function MonhocStack() {
     return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name='Monhoc' component={Monhoc} />
-        <Stack.Screen name='Diem' component={Diem} />
+      <Stack.Navigator>
+        <Stack.Screen name='Môn Học' component={Monhoc} />
+        <Stack.Screen name='Điểm Tổng Kết' component={Diem} />
       </Stack.Navigator>
     );
   }
   function UserStack() {
     return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name='User' component={User} />
-        <Stack.Screen name='Login' component={Login} />
+      <Stack.Navigator>
+        <Stack.Screen name='Thông Tin Sinh Viên' component={User} />
       </Stack.Navigator>
     );
   }

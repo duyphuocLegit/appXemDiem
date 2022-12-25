@@ -37,21 +37,36 @@ export default function Diem({ route }) {
 
   const renderDatas = (data, index) => (
     <View style={styles.row}>
-      <View style={index % 2 == 0 ? styles.row : styles.row2}>
-        <Text style={styles.masv}>{data.item.MaSV}</Text>
-        <Text style={styles.tensv}>{data.item.TenSV}</Text>
-        <Text style={styles.diem}>{data.item.diem}</Text>
+      <View style={styles.row_item_masv}>
+        <Text style={styles.item_text}>{data.item.TenTK}</Text>
+      </View>
+      <View style={styles.row_item_ten}>
+        <Text style={styles.item_text}>{data.item.TenSV}</Text>
+      </View>
+      <View style={styles.row_item_diem}>
+        <Text style={styles.item_text}>{data.item.diem}</Text>
       </View>
     </View>
   );
 
   return (
     <View style={styles.container}>
+      <View style={styles.tenmon}>
+        <Text style={{ fontSize: 20, fontWeight: "500", color: "grey" }}>
+          {route.params.TenMon}
+        </Text>
+      </View>
       <View style={styles.table}>
-        <View style={styles.row}>
-          <Text style={styles.masv}>Mã sv</Text>
-          <Text style={styles.tensv}>Tên sv</Text>
-          <Text style={styles.diem}>Điểm</Text>
+        <View style={styles.title}>
+          <View style={styles.title_item_masv}>
+            <Text style={styles.title_text}>Mã SV</Text>
+          </View>
+          <View style={styles.title_item_ten}>
+            <Text style={styles.title_text}>Họ tên</Text>
+          </View>
+          <View style={styles.title_item_diem}>
+            <Text style={styles.title_text}>Điểm</Text>
+          </View>
         </View>
         <FlatList data={datas} renderItem={renderDatas} />
       </View>

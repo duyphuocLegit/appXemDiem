@@ -17,26 +17,34 @@ export default function Monhoc({ navigation }) {
   };
   const renderDatas = (data) => (
     <View>
-    <TouchableOpacity onPress={() => { navigation.navigate("Diem", data.item) }}>
+    <TouchableOpacity onPress={() => { navigation.navigate("Điểm Tổng Kết", data.item) }}>
       <View style={styles.row}>
-          <Text style={styles.mamon}>{data.item.MaMon}</Text>
-          <Text style={styles.tenmon}>{data.item.TenMon}</Text>
+          <View style={styles.row_item_mamon}>
+            <Text>{data.item.MaMon}</Text>
+          </View>
+          <View style={styles.row_item_tenmon}>
+            <Text>{data.item.TenMon}</Text>
+          </View>
       </View>
         </TouchableOpacity></View>
     )
 
   return (
     <View style={styles.container}>
-    <View style={styles.table}>
-    <View style={styles.row}>
-      <Text style={styles.mamon}>Mã môn</Text>
-      <Text style={styles.tenmon}>Tên môn</Text>
+      <View style={styles.table}>
+        <View style={styles.title}>
+          <View style={styles.tile_item_mamon}>
+              <Text style={styles.title_text}>Mã môn</Text>
+          </View>
+          <View style={styles.tile_item_tenmon}>
+              <Text style={styles.title_text}>Tên môn</Text>
+          </View>
+        </View>
+        <FlatList
+          data={datas}
+          renderItem={renderDatas}
+        />
+      </View>
     </View>
-      <FlatList
-        data={datas}
-        
-        renderItem={renderDatas}
-      />
-    </View></View>
   )
 }

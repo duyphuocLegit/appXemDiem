@@ -26,7 +26,7 @@
 	{
 		$Message="true";
 		$_SESSION['malop'] = $row_malop;
-		$_SESSION['MaSV'] = $row_masv;
+		$_SESSION['masv'] = $row_masv;
 	}
 	else
 	{
