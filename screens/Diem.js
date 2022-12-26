@@ -3,10 +3,7 @@
 import {
   View,
   Text,
-  StyleSheet,
-  Image,
   FlatList,
-  TouchableOpacity,
   BackHandler
 } from "react-native";
 import React, { useState, useEffect } from "react";

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, BackHandler, Alert } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, BackHandler, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import styles from '../style/MonhocStyles'
 import { useNavigation } from '@react-navigation/native';
