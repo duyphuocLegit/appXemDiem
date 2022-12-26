@@ -1,24 +1,24 @@
 /** @format */
 
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Text, Image,Alert } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer,StackActions, useNavigation} from "@react-navigation/native";
+import {createDrawerNavigator, DrawerContentScrollView,DrawerItemList,DrawerItem } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
+
 
 import Login from "./screens/Login";
 import Monhoc from "./screens/Monhoc";
 import Diem from "./screens/Diem";
 import User from "./screens/User";
-import styles from "./style/UserStyles";
 
 
 export default function App() {
   const Stack = createNativeStackNavigator()
   const Tab = createBottomTabNavigator()
   const Drawer = createDrawerNavigator()
-
+const navigation=useNavigation()
   function MonhocStack() {
     return (
       <Stack.Navigator>
@@ -77,9 +77,40 @@ export default function App() {
   //   );
   // }
 
+  function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+        style={{paddingTop:50}}
+         label="Đăng xuất" onPress={() =>
+          Alert.alert(
+            "Đăng Xuất",
+            "Bạn có muốn đăng xuất tài khoản hay không?",
+            [
+              {
+                text: "Cancel",
+                onPress: () => {
+                  return null;
+                },
+              },
+              {
+                text: "Yes",
+                onPress: () => {
+                  navigation.dispatch(StackActions.popToTop())
+                },
+              },
+            ],
+            { cancelable: false }
+          )
+        } />
+      </DrawerContentScrollView>
+    );
+  }
+
   function NavByDrawer(){
     return(
-      <Drawer.Navigator screenOptions={{ headerShown: false }}>
+      <Drawer.Navigator screenOptions={{ headerShown: false }} drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
           name='Môn học'
           component={MonhocStack}
