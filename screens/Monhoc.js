@@ -1,12 +1,27 @@
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity, BackHandler, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import styles from '../style/MonhocStyles'
+import { useNavigation } from '@react-navigation/native';
 
-export default function Monhoc({ navigation }) {
+export default function Monhoc() {
+  const navigation = useNavigation();
   const [datas, setDatas] = useState([]);
 
+  const backAction = () => {
+    Alert.alert("Khoan!", "Bạn muốn thoát khỏi app không?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
   useEffect(() => {
-    fetchDatas()
+    fetchDatas();
+    BackHandler.addEventListener("hardwareBackPress", backAction);
   }, []);
 
   const fetchDatas = () => {

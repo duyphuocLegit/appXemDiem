@@ -1,10 +1,29 @@
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
-import React, {useState} from 'react'
+import { View, Text, Image, TextInput, TouchableOpacity, BackHandler, Alert} from 'react-native'
+import React, {useState, useEffect} from 'react'
 import styles from '../style/LoginStyles'
+import { useNavigation } from '@react-navigation/native'
 
-export default function Login({ navigation }) {
+export default function Login() {
+    const navigation = useNavigation();
     const [tentk, setTentk] = useState('')
     const [matkhau, setMatkhau] = useState('')
+
+    useEffect(() => {
+      BackHandler.addEventListener("hardwareBackPress", backAction);
+    }, []);
+
+    const backAction = () => {
+      Alert.alert("Khoan!", "Bạn muốn thoát khỏi app không?", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      return true;
+    };
+
     const postData = () => {
       if(tentk.length == 0)
       {

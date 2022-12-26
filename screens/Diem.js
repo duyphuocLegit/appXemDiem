@@ -7,16 +7,30 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  BackHandler
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import styles from "../style/DiemStyles";
+import { useRoute } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
-export default function Diem({ route }) {
+export default function Diem() {
+  const route = useRoute();
+  const navigation = useNavigation();
   const [datas, setDatas] = useState([]);
   const [tenmon, setTenmon] = useState(route.params.TenMon);
 
+  const backAction = () => {
+    navigation.goBack();
+    return true;
+  };
+
   useEffect(() => {
     fetchDatas();
+    BackHandler.addEventListener("hardwareBackPress", backAction);
+    return () =>{
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+    };
   }, []);
 
   const fetchDatas = () => {
