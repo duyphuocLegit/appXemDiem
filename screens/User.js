@@ -45,42 +45,7 @@ export default function User() {
         </View>
 </View>
         </View>
-        <View style={styles.logout}>
-      <TouchableOpacity
-        style={styles.logout}
-        onPress={() =>
-          Alert.alert(
-            "Đăng Xuất",
-            "Bạn có muốn đăng xuất tài khoản hay không?",
-            [
-              {
-                text: "Cancel",
-                onPress: () => {
-                  return null;
-                },
-              },
-              {
-                text: "Yes",
-                onPress: () => {
-                  navigation.dispatch(StackActions.popToTop());
-                },
-              },
-            ],
-            { cancelable: false }
-          )
-        }>
-         <View style={styles.logout__button}>
-           <View style={styles.logout__text__container}>
-             <Text style={styles.logout__text}>Đăng xuất</Text>
-           </View>
-           <View>
-             <Image
-              style={styles.logout__img}
-              source={require("../assets/images/logout.png")}
-            />
-           </View>
-         </View>
-       </TouchableOpacity></View>
+        
       </View>
     )
 

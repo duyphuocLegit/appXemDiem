@@ -8,10 +8,12 @@ profile:{height:600},
         profile__title__text:{marginBottom:30,opacity:0.4, textDecorationLine: 'underline', fontWeight: '500'},
         profile__detail__text:{marginBottom:30},
 
-logout:{marginTop:30},
-    logout__button:{flexDirection: 'row',paddingTop:15, marginBottom: 10,borderTopWidth:0.5},
-    logout__text:{fontWeight:'600',fontSize:15},
-    logout__text__container:{paddingRight: 10},
-    logout__img:{width:30,height:30},
+logout:{marginTop:220,borderTopWidth:0.5},
+    logout__button:{flexDirection: 'row',paddingTop:60,paddingLeft:10},
+        logout__button__img:{height:25,width:25,marginRight:10},
+        logout__button__text:{fontSize:12,fontWeight:'600'},
+
+    logout__row:{paddingTop:25,flexDirection:'row',paddingLeft:5},
+        logout__row__img:{width:25,height:25,marginTop:10},
 
 })
