@@ -121,6 +121,7 @@ export default function App() {
             </View>
             
             <View style={styles.logout__row}>
+            
               <Image
                 style={styles.logout__row__img}
                 source={require("./assets/images/fb.png")}
