@@ -1,11 +1,8 @@
-import { View, Text,  Image, FlatList, TouchableOpacity} from 'react-native'
+import { View, Text,  Image, FlatList} from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { Alert } from 'react-native';
-import { StackActions } from '@react-navigation/native';
 import styles from '../style/UserStyles';
-import { useNavigation } from '@react-navigation/native';
+
 export default function User() {
-  const navigation = useNavigation();
   const [datas, setDatas] = useState([]);
   
   useEffect(() => {
@@ -19,12 +16,13 @@ export default function User() {
       .catch(error => console.log(error))
   };
 
-  const renderDatas = (data) => (
-    
+  const renderDatas = (data) =>{ 
+
+    return(
     <View style={styles.container}>
       <View style={styles.profile}>
       <View style={{alignItems:'center'}}>
-      <Image style={styles.profile__img} source={require('../assets/images/mark.jpeg')}/>
+      <Image style={styles.profile__img} source={{uri:'http://192.168.1.89/chuyende4/images/'+data.item.hinh}}/>
       <Text style={{fontSize:20,fontWeight:'700',marginBottom:30}}>{data.item.TenSV}</Text></View>
 <View style={{flexDirection:'row',left:30}}>
       <View style={styles.profile__title}>
@@ -48,7 +46,8 @@ export default function User() {
         
       </View>
     )
-
+  }
+  
   return (
     <View>
       <FlatList

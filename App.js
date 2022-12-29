@@ -1,13 +1,18 @@
 /** @format */
-import { useCallback } from "react";
-import { Text, Image, Alert, View, TouchableOpacity,Button,Linking } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useCallback, useState, useEffect } from "react";
 import {
-  NavigationContainer,
-  StackActions,
-  useNavigation,
-} from "@react-navigation/native";
+  Text,
+  Image,
+  Alert,
+  View,
+  TouchableOpacity,
+  Button,
+  Linking,
+  FlatList,
+  ScrollView,
+} from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -15,7 +20,6 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import styles from "./style/UserStyles";
 
@@ -25,10 +29,10 @@ import Diem from "./screens/Diem";
 import User from "./screens/User";
 
 export default function App() {
+
   const Stack = createNativeStackNavigator();
-  const Tab = createBottomTabNavigator();
   const Drawer = createDrawerNavigator();
-  // const navigation=useNavigation()
+
   function MonhocStack() {
     return (
       <Stack.Navigator>
@@ -38,77 +42,65 @@ export default function App() {
     );
   }
 
-  // function NavByTab() {
-  //   return (
-  //     <Tab.Navigator screenOptions={{ headerShown: false }}>
-  //       <Tab.Screen
-  //         name='MonhocTab'
-  //         component={MonhocStack}
-  //         options={{
-  //           tabBarIcon: ({ focused }) => (
-  //             <Image
-  //               source={require("./assets/icon/Book.png")}
-  //               style={{
-  //                 width: 25,
-  //                 height: 25,
-  //                 tintColor: focused ? "#2490F8" : "black",
-  //               }}
-  //             />
-  //           ),
-  //           tabBarLabel: ({ focused, color}) => (
-  //             <Text style={{ color: focused ? "#2490F8" : color }}>
-  //               Môn Học
-  //             </Text>
-  //           ),
-  //         }}
-  //       />
-  //       <Tab.Screen
-  //         name='UserTab'
-  //         component={UserStack}
-  //         options={{
-  //           tabBarIcon: ({ focused }) => (
-  //             <Image
-  //               source={require("./assets/icon/User.png")}
-  //               style={{
-  //                 width: 25,
-  //                 height: 25,
-  //                 tintColor: focused ? "#2490F8" : "black",
-  //               }}
-  //             />
-  //           ),
-  //           tabBarLabel: ({ focused, color, size }) => (
-  //             <Text style={{ color: focused ? "#2490F8" : color }}>
-  //               Thông Tin
-  //             </Text>
-  //           ),
-  //         }}
-  //       />
-  //     </Tab.Navigator>
-  //   );
-  // }
   const web = "http://cdktdn.edu.vn/";
   const facebook = "https://www.facebook.com/cdktdn.edu.vn";
-  
-  const OpenURLButton = ({ url, children}) => {
+
+  const OpenURLButton = ({ url, children }) => {
     const handlePress = useCallback(async () => {
       const supported = await Linking.canOpenURL(url);
       if (supported) {
         await Linking.openURL(url);
       } else {
-        Alert.alert(`Don't know how to open this URL: ${url}`);
+        Alert.alert(`Không tìm thấy: ${url}`);
       }
     }, [url]);
-    return <Button style={styles.logout__row__text} title={children} color='#000' onPress={handlePress} />;
+    return (
+      <Button
+        style={styles.logout__row__text}
+        title={children}
+        onPress={handlePress}
+      />
+    );
   };
 
-  function CustomDrawerContent(props, navigation) {
+  function CustomDrawerContent(props) {
+
+    const [datas, setDatas] = useState([]);
+
+    useEffect(() => {
+      fetchDatas();
+    }, []);
+
+    const fetchDatas = () => {
+      fetch("http://192.168.1.89/ChuyenDe4/api/User.php")
+        .then((response) => response.json())
+        .then((jsonResponse) => setDatas(jsonResponse));
+    };
+    
     return (
       <View style={{ flex: 1 }}>
         <DrawerContentScrollView {...props}>
-          <Image
-            style={{ height: 100, width: 100, borderRadius: 50, margin: 30 }}
-            source={require("./assets/images/user.png")}
-          />
+          <ScrollView nestedScrollEnabled={true}>
+          <ScrollView horizontal={true}>
+            <FlatList
+              data={datas}
+              renderItem={(data) => {
+                return (
+                  <View style={{ marginVertical: 20,marginLeft:30 }}>
+                    <Image
+                      style={{ width: 100, height: 100, borderRadius: 50 }}
+                      source={{
+                        uri:
+                          "http://150.150.2.2/chuyende4/images/" +
+                          data.item.hinh,
+                      }}
+                    />
+                    <Text style={{opacity:0.4,fontSize:12,marginTop:5}}>#{data.item.TenTK}</Text>
+                  </View>
+                );
+              }}
+            /></ScrollView>
+          </ScrollView>
           <DrawerItemList {...props} />
 
           <View style={styles.logout}>
@@ -119,9 +111,8 @@ export default function App() {
               />
               <OpenURLButton url={web}>cdktdn.edu.vn</OpenURLButton>
             </View>
-            
+
             <View style={styles.logout__row}>
-            
               <Image
                 style={styles.logout__row__img}
                 source={require("./assets/images/fb.png")}
@@ -133,19 +124,29 @@ export default function App() {
               onPress={() =>
                 Alert.alert(
                   "Đăng Xuất",
-                  "Bạn có muốn đăng xuất tài khoản hay không?",
+                  "Bạn có muốn đăng xuất tài khoản này không?",
                   [
-                    {text: "Cancel",onPress: () => {return null;},},
-                    {  text: "Yes", onPress: () => { AsyncStorage.clear();navigation.navigate("Login");},}
-                  ],{ cancelable: false }
-                )}>
+                    {
+                      text: "Ở lại",
+                      onPress: () => {
+                        return null;
+                      },
+                    },
+                    {
+                      text: "Có",
+                      onPress: () => {
+                        props.navigation.navigate("Login");
+                      },
+                    },
+                  ],
+                  { cancelable: false }
+                )
+              }>
               <Image
                 style={styles.logout__button__img}
                 source={require("./assets/images/logout.png")}
               />
-              <Text style={styles.logout__button__text}>
-                Đăng xuất
-              </Text>
+              <Text style={styles.logout__button__text}>Đăng xuất</Text>
             </TouchableOpacity>
           </View>
         </DrawerContentScrollView>

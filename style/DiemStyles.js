@@ -64,7 +64,7 @@ export default styles = StyleSheet.create({
     textAlign: "center",
   },
   tenmon: {
-    width: "50%",
+    width: "60%",
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",

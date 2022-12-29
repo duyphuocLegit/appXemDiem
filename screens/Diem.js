@@ -46,7 +46,7 @@ export default function Diem() {
       .catch((error) => console.log(error));
   };
 
-  const renderDatas = (data, index) => (
+  const renderDatas = (data) => (
     <View style={styles.row}>
       <View style={styles.row_item_masv}>
         <Text style={styles.item_text}>{data.item.TenTK}</Text>
