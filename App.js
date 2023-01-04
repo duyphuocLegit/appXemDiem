@@ -78,7 +78,7 @@ export default function App() {
     };
     
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1,height:'100%' }}>
         <DrawerContentScrollView {...props}>
           <ScrollView nestedScrollEnabled={true}>
           <ScrollView horizontal={true}>
@@ -91,7 +91,7 @@ export default function App() {
                       style={{ width: 100, height: 100, borderRadius: 50 }}
                       source={{
                         uri:
-                          "http://150.150.2.2/chuyende4/images/" +
+                          "http://192.168.1.89/chuyende4/images/" +
                           data.item.hinh,
                       }}
                     />
@@ -153,6 +153,7 @@ export default function App() {
       </View>
     );
   }
+  
 
   function NavByDrawer() {
     return (

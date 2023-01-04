@@ -1,9 +1,5 @@
 <?php
 	session_start();
-	header("Access-Control-Allow-Headers: Authorization, Content-Type");
-	header("Access-Control-Allow-Origin: *");
-	header('content-type: application/json; charset=utf-8');
-	header("Access-Control-Allow-Methods: PUT, GET, POST");
 	include '../ketnoi.php';
 	mysqli_set_charset($ketnoi,'UTF8');
 	
@@ -18,20 +14,29 @@
 			WHERE A.TenTk = B.TenTK
 			AND A.TenTK="'.$tentk.'"';
 	$query_output =  mysqli_query($ketnoi,$query);
-	$row = mysqli_fetch_assoc($query_output);
-	$row_matkhau = $row['MatKhau'];
-	$row_malop = $row['MaLop'];
-	$row_masv = $row['MaSV'];
-	if($matkhau == $row_matkhau)
+	if(mysqli_num_rows($query_output) > 0)
 	{
-		$Message="true";
-		$_SESSION['malop'] = $row_malop;
-		$_SESSION['masv'] = $row_masv;
+		$row = mysqli_fetch_assoc($query_output);
+		$row_matkhau = $row['MatKhau'];
+		$row_malop = $row['MaLop'];
+		$row_masv = $row['MaSV'];
+		if($matkhau == $row_matkhau)
+		{
+			$Message="true";
+			$_SESSION['malop'] = $row_malop;
+			$_SESSION['masv'] = $row_masv;
+		}
+		else
+		{
+			$Message="Sai mật khẩu";
+		}
+		$Response[]=array("Message"=>$Message);
+		echo json_encode($Response);
 	}
 	else
 	{
-		$Message="Tên tài khoản hoặc mật khẩu không đúng";
+		$Message="Tài khoản không tồn tại";
+		$Response[]=array("Message"=>$Message);
+		echo json_encode($Response);
 	}
-	$Response[]=array("Message"=>$Message);
-	echo json_encode($Response);
 ?>

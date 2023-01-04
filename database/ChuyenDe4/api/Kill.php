@@ -1,9 +1,6 @@
 <?php
 	session_start();
-	header("Access-Control-Allow-Headers: Authorization, Content-Type");
-	header("Access-Control-Allow-Origin: *");
-	header('content-type: application/json; charset=utf-8');
-	header("Access-Control-Allow-Methods: PUT, GET, POST");
+	
 	include '../ketnoi.php';
 	mysqli_set_charset($ketnoi,'UTF8');
 	
