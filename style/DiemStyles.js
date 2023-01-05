@@ -23,13 +23,13 @@ export default styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRightWidth: 0,
-    width: "35%",
+    width: "40%",
   },
   row_item_ten: {
     padding: 5,
     borderWidth: 1,
     borderRightWidth: 0,
-    width: "45%",
+    width: "40%",
   },
   row_item_diem: {
     padding: 5,
@@ -45,10 +45,10 @@ export default styles = StyleSheet.create({
     padding: 5,
     borderWidth: 1,
     borderRightWidth: 0,
-    width: "35%",
+    width: "40%",
   },
   title_item_ten: {
-    width: "45%",
+    width: "40%",
     padding: 5,
     borderWidth: 1,
     borderRightWidth: 0,

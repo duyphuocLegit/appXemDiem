@@ -78,7 +78,7 @@ export default function Login() {
                     <TextInput
                     style={styles.formInput}
                     placeholder='Username'
-                        onChangeText={(text) => { setTentk(text) }}
+                    onChangeText={(text) => { setTentk(text) }}
                     >
                     </TextInput>
                 </View>
@@ -86,9 +86,8 @@ export default function Login() {
                     <TextInput
                     style={styles.formInput}
                     placeholder='Password'
-
-                        secureTextEntry={true}
-                        onChangeText={(text) => { setMatkhau(text) }}
+                    secureTextEntry={true}
+                    onChangeText={(text) => { setMatkhau(text) }}
                     >    
                     </TextInput>
                 </View>

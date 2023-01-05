@@ -161,8 +161,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
-          name='Môn học'
-          component={MonhocStack}
+          name='Môn học' component={MonhocStack}
           options={{
             drawerIcon: ({ focused }) => (
               <Image
@@ -182,8 +181,7 @@ export default function App() {
           }}
         />
         <Drawer.Screen
-          name='Thông tin'
-          component={User}
+          name='Thông tin' component={User}
           options={{
             drawerIcon: ({ focused }) => (
               <Image

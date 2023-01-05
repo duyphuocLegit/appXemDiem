@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 25, 2022 at 10:46 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.0.23
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 05, 2023 lúc 03:33 PM
+-- Phiên bản máy phục vụ: 10.4.25-MariaDB
+-- Phiên bản PHP: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chuyende4`
+-- Cơ sở dữ liệu: `chuyende4`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diem`
+-- Cấu trúc bảng cho bảng `diem`
 --
 
 CREATE TABLE `diem` (
@@ -35,30 +35,81 @@ CREATE TABLE `diem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `diem`
+-- Đang đổ dữ liệu cho bảng `diem`
 --
 
 INSERT INTO `diem` (`STT`, `MaSV`, `MaMon`, `diem`) VALUES
-(1, '1', 'MH01', 6),
-(2, '1', 'MH02', 9),
-(3, '1', 'MH03', 9),
-(4, '2', 'MH01', 7),
-(5, '2', 'MH02', 6),
-(6, '2', 'MH03', 7),
-(7, '3', 'MH01', 8),
-(8, '3', 'MH02', 8),
-(9, '3', 'MH03', 7),
-(10, '4', 'MH04', 10),
-(11, '4', 'MH05', 7),
-(12, '4', 'MH06', 9),
-(13, '5', 'MH04', 6),
-(14, '5', 'MH05', 8),
-(15, '5', 'MH06', 9);
+(1, 'CT20CD311', 'MH01', 6),
+(2, 'CT20CD311', 'MH02', 9),
+(3, 'CT20CD311', 'MH03', 9),
+(4, 'CT20CD312', 'MH01', 7),
+(5, 'CT20CD312', 'MH02', 6),
+(6, 'CT20CD312', 'MH03', 7),
+(7, 'CT20CD313', 'MH01', 8),
+(8, 'CT20CD313', 'MH02', 8),
+(9, 'CT20CD313', 'MH03', 7),
+(10, 'QT20CD311', 'MH04', 10),
+(11, 'QT20CD311', 'MH05', 7),
+(12, 'QT20CD311', 'MH06', 9),
+(13, 'QT20CD312', 'MH04', 6),
+(14, 'QT20CD312', 'MH05', 8),
+(15, 'QT20CD312', 'MH06', 9),
+(16, 'CT20CD314', 'MH01', 5),
+(17, 'CT20CD314', 'MH02', 7),
+(18, 'CT20CD314', 'MH03', 8),
+(19, 'CT20CD315', 'MH01', 7),
+(20, 'CT20CD315', 'MH02', 7),
+(21, 'CT20CD315', 'MH03', 8),
+(22, 'CT20CD316', 'MH01', 7),
+(23, 'CT20CD316', 'MH02', 7),
+(24, 'CT20CD316', 'MH03', 8),
+(25, 'CT20CD317', 'MH01', 7),
+(26, 'CT20CD317', 'MH02', 7),
+(27, 'CT20CD317', 'MH03', 8),
+(28, 'QT20CD314', 'MH01', 7),
+(29, 'QT20CD314', 'MH02', 7),
+(30, 'QT20CD314', 'MH03', 8),
+(31, 'QT20CD315', 'MH01', 6),
+(32, 'QT20CD315', 'MH02', 7),
+(33, 'QT20CD315', 'MH03', 10),
+(34, 'QT20CD316', 'MH01', 7),
+(35, 'QT20CD316', 'MH02', 7),
+(36, 'QT20CD316', 'MH03', 8),
+(37, 'QT20CD317', 'MH01', 7),
+(38, 'QT20CD317', 'MH02', 5),
+(39, 'QT20CD317', 'MH03', 8),
+(40, 'CT20CD318', 'MH01', 6),
+(41, 'CT20CD318', 'MH02', 6),
+(42, 'CT20CD318', 'MH03', 8),
+(43, 'CT20CD319', 'MH01', 6),
+(44, 'CT20CD319', 'MH02', 7),
+(45, 'CT20CD319', 'MH03', 9),
+(46, 'CT20CD3110', 'MH01', 6),
+(47, 'CT20CD3110', 'MH02', 7),
+(48, 'CT20CD3110', 'MH03', 9),
+(49, 'CT20CD3111', 'MH01', 8),
+(50, 'CT20CD3111', 'MH02', 6),
+(51, 'CT20CD3111', 'MH03', 7),
+(52, 'CT20CD3112', 'MH01', 9),
+(53, 'CT20CD3112', 'MH02', 6),
+(54, 'CT20CD3112', 'MH03', 7),
+(55, 'CT20CD3113', 'MH01', 6),
+(56, 'CT20CD3113', 'MH02', 7),
+(57, 'CT20CD3113', 'MH03', 9),
+(58, 'CT20CD3114', 'MH01', 6),
+(59, 'CT20CD3114', 'MH02', 7),
+(60, 'CT20CD3114', 'MH03', 9),
+(61, 'CT20CD3115', 'MH01', 8),
+(62, 'CT20CD3115', 'MH02', 6),
+(63, 'CT20CD3115', 'MH03', 7),
+(64, 'QT20CD313', 'MH01', 9),
+(65, 'QT20CD313', 'MH02', 6),
+(66, 'QT20CD313', 'MH03', 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lop`
+-- Cấu trúc bảng cho bảng `lop`
 --
 
 CREATE TABLE `lop` (
@@ -67,7 +118,7 @@ CREATE TABLE `lop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `lop`
+-- Đang đổ dữ liệu cho bảng `lop`
 --
 
 INSERT INTO `lop` (`MaLop`, `TenLop`) VALUES
@@ -77,7 +128,7 @@ INSERT INTO `lop` (`MaLop`, `TenLop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monhoc`
+-- Cấu trúc bảng cho bảng `monhoc`
 --
 
 CREATE TABLE `monhoc` (
@@ -87,7 +138,7 @@ CREATE TABLE `monhoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `monhoc`
+-- Đang đổ dữ liệu cho bảng `monhoc`
 --
 
 INSERT INTO `monhoc` (`MaMon`, `TenMon`, `MaLop`) VALUES
@@ -101,7 +152,7 @@ INSERT INTO `monhoc` (`MaMon`, `TenMon`, `MaLop`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sinhvien`
+-- Cấu trúc bảng cho bảng `sinhvien`
 --
 
 CREATE TABLE `sinhvien` (
@@ -117,20 +168,37 @@ CREATE TABLE `sinhvien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `sinhvien`
+-- Đang đổ dữ liệu cho bảng `sinhvien`
 --
 
 INSERT INTO `sinhvien` (`MaSV`, `TenSV`, `NgaySinh`, `GioiTinh`, `Email`, `SDT`, `MaLop`, `TenTK`, `hinh`) VALUES
-('1', 'Nguyễn Văn A', '2002-05-16', 'Nam', 'ngvana@gmail.com', 1162786378, 'CT20CD31', 'CT20CD311', 'billgates.jpeg'),
-('2', 'Tran Hoang ', '2002-03-12', 'Nam', 'trhoang@gmail.com', 62352183, 'CT20CD31', 'CT20CD312', 'elon_musk.jpeg'),
-('3', 'Lý Ngọc', '2022-12-01', 'Nữ', 'lyngoc@gmail.com', 37463272, 'CT20CD31', 'CT20CD313', 'joe_belfiore.jpeg'),
-('4', 'Phạm Văn B', '2022-12-04', 'Nam', 'phvanb@gmail.com', 746273829, 'QT20CD31', 'QT20CD311', 'joe_biden.jpeg'),
-('5', 'Văn Nam', '2022-12-28', 'Nam', 'vannam@gmail.com', 376432673, 'QT20CD31', 'QT20CD312', 'mark.jpeg');
+('CT20CD311', 'Nguyễn Văn A', '2002-05-16', 'Nam', 'ngvana@gmail.com', 1162786378, 'CT20CD31', 'CT20CD311', 'billgates.jpeg'),
+('CT20CD3110', 'Ngọc Hương', '2002-01-08', 'Nữ', 'ngocbich@gmail.com', 83473992, 'CT20CD31', 'CT20CD3110', NULL),
+('CT20CD3111', 'Văn Quang', '2002-01-08', 'Nam', 'vanquang@gmail.com', 83473992, 'CT20CD31', 'CT20CD3111', NULL),
+('CT20CD3112', 'Yến Ly', '2002-01-08', 'Nữ', 'yenly@gmail.com', 83473992, 'CT20CD31', 'CT20CD3112', NULL),
+('CT20CD3113', 'Văn Đại', '2002-01-08', 'Nam', 'vandai@gmail.com', 83473992, 'CT20CD31', 'CT20CD3113', NULL),
+('CT20CD3114', 'Hoàng Yến', '2002-01-08', 'Nữ', 'hoangyen@gmail.com', 83473992, 'CT20CD31', 'CT20CD3114', NULL),
+('CT20CD3115', 'Văn Hậu', '2002-01-08', 'Nam', 'vanhau@gmail.com', 83473992, 'CT20CD31', 'CT20CD3115', NULL),
+('CT20CD312', 'Tran Hoang ', '2002-03-12', 'Nam', 'trhoang@gmail.com', 62352183, 'CT20CD31', 'CT20CD312', 'elon_musk.jpeg'),
+('CT20CD313', 'Lý Ngọc', '2022-12-01', 'Nữ', 'lyngoc@gmail.com', 37463272, 'CT20CD31', 'CT20CD313', 'joe_belfiore.jpeg'),
+('CT20CD314', 'Van Nam', '2002-01-20', 'Nam', 'vannam@gmail.com', 24984957, 'CT20CD31', 'CT20CD314', NULL),
+('CT20CD315', 'Thu Nguyệt', '2002-01-07', 'Nữ', 'thunguyet@gmail.com', 82734869, 'CT20CD31', 'CT20CD315', NULL),
+('CT20CD316', 'Văn Nghĩa', '2002-01-25', 'Nam', 'vannghia@gmail.com', 36273929, 'CT20CD31', 'CT20CD316', NULL),
+('CT20CD317', 'Nguyen Hoang', '2002-01-10', 'Nam', 'nghoang@gmail.com', 23973242, 'CT20CD31', 'CT20CD317', NULL),
+('CT20CD318', 'Ngọc Bích', '2002-01-08', 'Nữ', 'ngocbich@gmail.com', 83473992, 'CT20CD31', 'CT20CD318', NULL),
+('CT20CD319', 'Đăng Quang', '2002-01-08', 'Nam', 'dangquang@gmail.com', 83473992, 'CT20CD31', 'CT20CD319', NULL),
+('QT20CD311', 'Phạm Văn B', '2022-12-04', 'Nam', 'phvanb@gmail.com', 746273829, 'QT20CD31', 'QT20CD311', 'joe_biden.jpeg'),
+('QT20CD312', 'Văn Nam', '2022-12-28', 'Nam', 'vannam@gmail.com', 376432673, 'QT20CD31', 'QT20CD312', 'mark.jpeg'),
+('QT20CD313', 'Yến Ly', '2002-01-08', 'Nữ', 'yenly@gmail.com', 83473992, 'QT20CD31', 'QT20CD313', NULL),
+('QT20CD314', 'My Ngoc', '2002-01-22', 'Nữ', 'myngoc@gmail.com', 327898986, 'QT20CD31', 'QT20CD314', NULL),
+('QT20CD315', 'Hoài Phong', '2002-01-03', 'Nam', 'hoaiphong@gmail.com', 32847393, 'QT20CD31', 'QT20CD315', NULL),
+('QT20CD316', 'Pham Hung', '2002-01-31', 'Nam', 'phhung@gmail.com', 23678647, 'QT20CD31', 'QT20CD316', NULL),
+('QT20CD317', 'Kỳ Duyên', '2002-01-28', 'Nữ', 'kyduyen@gmail.com', 86732839, 'QT20CD31', 'QT20CD317', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `taikhoan`
+-- Cấu trúc bảng cho bảng `taikhoan`
 --
 
 CREATE TABLE `taikhoan` (
@@ -139,22 +207,40 @@ CREATE TABLE `taikhoan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `taikhoan`
+-- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
 INSERT INTO `taikhoan` (`TenTK`, `MatKhau`) VALUES
 ('CT20CD311', 'abcd'),
+('CT20CD3110', 'abcd'),
+('CT20CD3111', 'abcd'),
+('CT20CD3112', 'abcd'),
+('CT20CD3113', 'abcd'),
+('CT20CD3114', 'abcd'),
+('CT20CD3115', 'abcd'),
 ('CT20CD312', 'abcd'),
 ('CT20CD313', 'abcd'),
+('CT20CD314', 'abcd'),
+('CT20CD315', 'abcd'),
+('CT20CD316', 'abcd'),
+('CT20CD317', 'abcd'),
+('CT20CD318', 'abcd'),
+('CT20CD319', 'abcd'),
 ('QT20CD311', 'abcd'),
-('QT20CD312', 'abcd');
+('QT20CD312', 'abcd'),
+('QT20CD313', 'abcd'),
+('QT20CD314', 'abcd'),
+('QT20CD315', 'abcd'),
+('QT20CD316', 'abcd'),
+('QT20CD317', 'abcd'),
+('QT20CD318', 'abcd');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `diem`
+-- Chỉ mục cho bảng `diem`
 --
 ALTER TABLE `diem`
   ADD PRIMARY KEY (`STT`),
@@ -162,20 +248,20 @@ ALTER TABLE `diem`
   ADD KEY `MaMon` (`MaMon`);
 
 --
--- Indexes for table `lop`
+-- Chỉ mục cho bảng `lop`
 --
 ALTER TABLE `lop`
   ADD PRIMARY KEY (`MaLop`);
 
 --
--- Indexes for table `monhoc`
+-- Chỉ mục cho bảng `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD PRIMARY KEY (`MaMon`),
   ADD KEY `MaLop` (`MaLop`);
 
 --
--- Indexes for table `sinhvien`
+-- Chỉ mục cho bảng `sinhvien`
 --
 ALTER TABLE `sinhvien`
   ADD PRIMARY KEY (`MaSV`),
@@ -183,40 +269,40 @@ ALTER TABLE `sinhvien`
   ADD KEY `TenTK` (`TenTK`);
 
 --
--- Indexes for table `taikhoan`
+-- Chỉ mục cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`TenTK`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `diem`
+-- AUTO_INCREMENT cho bảng `diem`
 --
 ALTER TABLE `diem`
-  MODIFY `STT` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `STT` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `diem`
+-- Các ràng buộc cho bảng `diem`
 --
 ALTER TABLE `diem`
   ADD CONSTRAINT `diem_ibfk_1` FOREIGN KEY (`MaMon`) REFERENCES `monhoc` (`MaMon`) ON UPDATE CASCADE,
   ADD CONSTRAINT `diem_ibfk_2` FOREIGN KEY (`MaSV`) REFERENCES `sinhvien` (`MaSV`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `monhoc`
+-- Các ràng buộc cho bảng `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`MaLop`) REFERENCES `lop` (`MaLop`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `sinhvien`
+-- Các ràng buộc cho bảng `sinhvien`
 --
 ALTER TABLE `sinhvien`
   ADD CONSTRAINT `sinhvien_ibfk_2` FOREIGN KEY (`MaLop`) REFERENCES `lop` (`MaLop`) ON UPDATE CASCADE,
